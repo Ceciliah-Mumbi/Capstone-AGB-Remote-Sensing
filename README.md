@@ -1,5 +1,6 @@
 # Capstone-AGB-Remote-Sensing
-## Comparing Remote Sensing Technologies for Above-Ground Biomass (AGB) Estimation using Ground-truth data
+## Comparing Canopy Height Metrics Across Three LiDAR Platforms to Support Restoration Monitoring
+
 This repository is intended to contain all the scripts, documentations and data structure for the different remotely sensed LiDAR data.
 
 This project compares canopy height measurements derived from three LiDAR-based remote sensing platforms—airborne LiDAR, drone LiDAR, and mobile laser scanning (MLS). Using data collected from three 50 × 50 m Global Environmental Monitoring (GEM) plots in Borana, Kenya, the study evaluates how each platform captures tree height and vegetation structure.
