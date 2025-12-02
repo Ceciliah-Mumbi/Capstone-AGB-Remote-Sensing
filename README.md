@@ -1,13 +1,7 @@
 # Capstone-AGB-Remote-Sensing
 ## Comparing Remote Sensing Technologies for Above-Ground Biomass (AGB) Estimation using Ground-truth data
-This repository is intended to contain all the scripts, documentations and data structure for the different remotely sensed data for estimation of AGB (my capstone project)
+This repository is intended to contain all the scripts, documentations and data structure for the different remotely sensed LiDAR data.
 
-The project evaluates the precision and accuracy of three LiDAR-based remote sensing platforms;
-1. Fixed wing airborne LiDAR
-2. Drone based LiDAR
-3. Mobile Laser Scanner (MLS)
+This project compares canopy height measurements derived from three LiDAR-based remote sensing platforms—airborne LiDAR, drone LiDAR, and mobile laser scanning (MLS). Using data collected from three 50 × 50 m Global Environmental Monitoring (GEM) plots in Borana, Kenya, the study evaluates how each platform captures tree height and vegetation structure.
 
-These technologies are compared against ground-truth field biomass measurements collected from three Global Environmental Monitoring plots measuring 50*50 meters in Borana, Kenya.
-The goal is to determine which platform provides the most accurate AGB estimates to support restoration monitoring and evidence-based carbon accounting.
-
-The data source is from NATURAL STATE's research and monitoring. 
+By comparing LiDAR-derived canopy height metrics with available ground-based measurements, the project aims to identify which platform provides the most reliable information for forest and rangeland restoration monitoring. All datasets come from NATURAL STATE’s research and monitoring work. 
