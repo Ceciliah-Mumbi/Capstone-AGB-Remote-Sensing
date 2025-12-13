@@ -1,0 +1,1 @@
+All the LiDAR data from different sensors are supposed to be stored here, but due to the storage space, this could change to just being stored locally.

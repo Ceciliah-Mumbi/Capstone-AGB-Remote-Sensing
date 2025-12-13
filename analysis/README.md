@@ -1,0 +1,1 @@
+This folder contains scripts used to preprocess, analyze, and compare canopy height metrics derived from multiple LiDAR platforms.

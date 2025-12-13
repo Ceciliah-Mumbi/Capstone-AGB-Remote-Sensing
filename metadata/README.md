@@ -1,0 +1,1 @@
+This folder contains project documentation, references, and draft reports related to the capstone project.
