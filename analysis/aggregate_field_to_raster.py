@@ -4,6 +4,7 @@ import geopandas as gpd
 import rasterio
 import numpy as np
 from shapely.geometry import Point
+import matplotlib.pyplot as plt
 
 # specifying data paths
 CHM_path = "C:/Users/DELL/Capstone-AGB-Remote-Sensing/data/Canopy_Height_Model.tif"
@@ -71,4 +72,9 @@ cell_stats = (
  )
  .reset_index()
 )
-print(cell_stats.head())
+
+#Perform EDA
+plt.boxplot(cell_stats["mean_height"], vert=False)
+plt.xlabel("Mean field height (m)")
+plt.title("Outliers in mean field height")
+plt.show()
