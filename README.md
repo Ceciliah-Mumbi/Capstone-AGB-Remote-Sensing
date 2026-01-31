@@ -1,4 +1,4 @@
-# Capstone-AGB-Remote-Sensing
+# Above-Ground Biomass-Remote-Sensing
 ## Comparing Canopy Height Metrics From Mobile Laser Scanner LiDAR Platform Against Ground-truth Data to Support Restoration Monitoring
 
 This repository is intended to contain all the scripts, documentations and data structure for the LiDAR data.
