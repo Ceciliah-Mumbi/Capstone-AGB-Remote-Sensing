@@ -28,7 +28,7 @@ GT_df = pd.read_csv(F3_GT)
 # Convert tree_heigh to numeric, forcing errors to NaN
 GT_df['tree_heigh'] = pd.to_numeric(GT_df['tree_heigh'], errors='coerce')
 
-# Optional: Check how many invalid values you have
+# Checking how many invalid values I have
 print(f"Invalid tree height values: {GT_df['tree_heigh'].isna().sum()}")
 print(f"Valid tree height values: {GT_df['tree_heigh'].notna().sum()}")
 
@@ -70,10 +70,10 @@ cell_stats = (
  .agg(
   mean_height=("tree_heigh", "mean")
  )
- .reset_index()
-)
 
-#Perform EDA
+)
+print(cell_stats)
+#Perform EDA visualization- check for outliers
 plt.boxplot(cell_stats["mean_height"], vert=False)
 plt.xlabel("Mean field height (m)")
 plt.title("Outliers in mean field height")
