@@ -44,7 +44,7 @@ with rasterio.open(CHM_path) as src:
  transform = src.transform
  CHM_height = src.height
  CHM_width = src.width
-
+ 
  GT_geo = GT_geo.to_crs(CHM_crs)
 
 print(GT_geo.head())
@@ -72,9 +72,28 @@ cell_stats = (
  )
 
 )
-print(cell_stats)
-#Perform EDA visualization- check for outliers
-plt.boxplot(cell_stats["mean_height"], vert=False)
-plt.xlabel("Mean field height (m)")
-plt.title("Outliers in mean field height")
-plt.show()
+# Create a raster from field-measured heights (same resolution as CHM)
+field_height_raster = np.full((CHM_height, CHM_width), np.nan, dtype=np.float32)
+
+# Fill the raster with mean heights from cell_stats
+for idx, row_data in cell_stats.iterrows():
+    r, c = idx  # row and col from the MultiIndex
+    field_height_raster[r, c] = row_data["mean_height"]
+
+# Now export the raster
+output_field_raster = "C:/Users/DELL/Capstone-AGB-Remote-Sensing/outputs/field_height_raster.tif"
+with rasterio.open(
+    output_field_raster,
+    'w',
+    driver='GTiff',
+    height=CHM_height,
+    width=CHM_width,
+    count=1,
+    dtype=np.float32,
+    crs=CHM_crs,
+    transform=transform,
+    nodata=np.nan
+) as dst:
+    dst.write(field_height_raster, 1)
+
+print(f"✓ Field height raster exported to: {output_field_raster}")
