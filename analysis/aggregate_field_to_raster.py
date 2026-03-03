@@ -7,9 +7,9 @@ from shapely.geometry import Point
 import matplotlib.pyplot as plt
 
 # specifying data paths
-CHM_path = "C:/Users/DELL/Capstone-AGB-Remote-Sensing/data/Canopy_Height_Model.tif"
+CHM_path = "C:/Users/DELL/Desktop/Capstone/Data Science/data/GEM_F3_CHM_1m_clipped_EPSG32637.tif"
 F3_GT = "C:/Users/DELL/Capstone-AGB-Remote-Sensing/data/F3_GT.csv"
-output_raster = "C:/Users/DELL/Capstone-AGB-Remote-Sensing/outputs"
+#output_raster1 = "C:/Users/DELL/Desktop/Capstone/Data Science/data"
 
 # Loading the CHM raster file
 with rasterio.open(CHM_path) as src:
@@ -66,22 +66,25 @@ GT_geo = GT_geo [
 print(GT_df.columns.tolist())
 #Grouping GT_geo points by raster cell
 cell_stats = (
- GT_geo.groupby(["row", "col"])
- .agg(
-  mean_height=("tree_heigh", "mean")
- )
-
+    GT_geo.groupby(["row", "col"])
+    .agg(
+        max_height=("tree_heigh", "max")
+    )
+    .reset_index()
 )
+
 # Create a raster from field-measured heights (same resolution as CHM)
 field_height_raster = np.full((CHM_height, CHM_width), np.nan, dtype=np.float32)
 
-# Fill the raster with mean heights from cell_stats
-for idx, row_data in cell_stats.iterrows():
-    r, c = idx  # row and col from the MultiIndex
-    field_height_raster[r, c] = row_data["mean_height"]
+# Fill the raster with max heights from cell_stats
+for _, row_data in cell_stats.iterrows():
+    r = int(row_data["row"])
+    c = int(row_data["col"])
+    field_height_raster[r, c] = row_data["max_height"]
+
 
 # Now export the raster
-output_field_raster = "C:/Users/DELL/Capstone-AGB-Remote-Sensing/outputs/field_height_raster.tif"
+output_field_raster = "C:/Users/DELL/Desktop/Capstone/Data Science/data/field_height_raster.tif"
 with rasterio.open(
     output_field_raster,
     'w',
