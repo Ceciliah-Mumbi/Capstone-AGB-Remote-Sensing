@@ -1,0 +1,4 @@
+{"backend_state":"init","connection_file":"/tmp/xdg-runtime-user/jupyter/kernel-d6a79188-66bc-4a93-8ec5-915c2b24555d.json","kernel":"python3","kernel_error":"","kernel_state":"idle","kernel_usage":{"cpu":0,"memory":0},"last_backend_state":1771931305765,"last_ipynb_save":1771932278833,"trust":true,"type":"settings"}
+{"end":1771932239870,"exec_count":6,"id":"e90645","input":"%%bash\n\npwd\nls","kernel":"python3","output":{"0":{"name":"stdout","text":"/home/user/Capstone-Project-Template/Capstone-AGB-Remote-Sensing/analysis\n"},"1":{"name":"stdout","text":"README.md\naggregate_field_to_raster.py\ndrone_data\ngroundtruth_data_script\nmls_field_data_comparison."},"2":{"name":"stdout","text":"ipynb\nmobile_laser_scanner_script\n"}},"pos":0,"start":1771932239806,"state":"done","type":"cell"}
+{"id":0,"time":1771931298283,"type":"user"}
+{"last_load":1771926922189,"type":"file"}
